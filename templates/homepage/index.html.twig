@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                {% for decouverte in decouvertes %}
+                    <div class="carousel-item
+                        {% if loop.index==1%}
+                             active
+                        {% endif %}
+                        ">
+                        <a href="{{url('decouverte.detail', { id: decouverte.id })}}"><img class="d-block w-100" src="img/{{decouverte.image}}.jpg" alt="{{decouverte.name}}"></a>
+                     </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+
+

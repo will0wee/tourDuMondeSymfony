@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th width="60%">Nom</th>
+                        <th width="20%">Pays</th>
+                        <th width="20%" class="text-center" colspan="3">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for decouverte in decouvertes %}
+                    <tr>
+                        <td>{{decouverte.name}}</td>
+                        <td>{{decouverte.pays}}</td>
+                        <td><a href="{{url('decouverte.detail', {id: decouverte.id})}}" class="btn btn-primary">Visualiser</a></td>
+                        <td><a href="{{url('decouverte.update', {id: decouverte.id})}}" class="btn btn-warning">Modifier</a></td>
+                        <td><a href="{{url('decouverte.delete', {id: decouverte.id})}}" class="btn btn-danger">Supprimer</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>			
+        </div>
+		<a href="{{url('decouverte.add')}}" class="btn btn-success">Ajouter</a>
+{% endblock %}
+

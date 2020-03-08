@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-sm-9">
+			<span><h3>{{decouverte.name}}</h3><h4> au : {{decouverte.pays}}</h4></span>
+			<p>{{decouverte.article}}</p>
+			<hr>
+			<img src="{{ asset('img/'~ decouverte.image ~ '.jpg')}}" alt="{{decouverte.name}}" class="img-fluid">
+			<p class="h6"><span class="font-weight-bold">Continent :</span> {{decouverte.continent.name}}</p>
+		</div>
+	</div>
+{% endblock %}
+
